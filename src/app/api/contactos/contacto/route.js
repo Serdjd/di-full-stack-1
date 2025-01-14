@@ -18,7 +18,7 @@ export async function GET(request) {
     }
 
     return new Response(
-        JSON.stringify(contacto), 
+        JSON.stringify(contacto[0]), 
         {
             status: 200,
             headers: {"Content-type": "application/json"}

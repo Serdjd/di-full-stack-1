@@ -28,7 +28,7 @@ export async function DELETE(request) {
         .from("contacto")
         .delete()
         .eq("id", body.id)
-
+        
         if(error) {
             return new Response({status: 500})
         }
