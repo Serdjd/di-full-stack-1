@@ -12,7 +12,9 @@ export default function ContactForm() {
         })
     }
     return(
-        <form ref={formRef} action={onsubmit}>
+        <div className="container">
+            <h1>Añadir contactos</h1>
+            <form ref={formRef} action={onsubmit}>
             <label>Nombre: <input name="nombre" type="text" required></input></label><br/>
             <label>Apellidos: <input name="apellidos" type="text" required></input></label><br/>
             <label>Correo: <input  name="correo" type="email" required></input></label><br/>
@@ -20,5 +22,7 @@ export default function ContactForm() {
             <label>Fecha de nacimiento: <input name="fecha_nacimiento" type="date" required></input></label><br/>
             <button type="submit">Añadir</button>
         </form>
+        </div>
+        
     )
 }

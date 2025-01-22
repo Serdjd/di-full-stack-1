@@ -42,7 +42,7 @@ export default function Contactos() {
                 <Link href={`/contactos/${contacto.id}`}>
                     {contacto.nombre + " " + contacto.apellidos}
                 </Link>
-                <button onClick={() => deleteContacto(contacto.id)}>
+                <button onClick={() => deleteContacto(contacto.id) } className={"deleteButton"}>
                     Eliminar
                 </button>
             </>
@@ -50,11 +50,15 @@ export default function Contactos() {
     }
 
     return(
-        <>
-            {
-                contactos.map((contacto) => <Contacto contacto={contacto} key={contacto.id}></Contacto>)
-            }
-        </>
+        <div className={"container"}>
+            <h1>Contactos</h1>
+            <div>
+                {
+                    contactos.map((contacto) => <Contacto contacto={contacto} key={contacto.id}></Contacto>)
+                }
+            </div>
+            
+        </div>
     )
 }
 

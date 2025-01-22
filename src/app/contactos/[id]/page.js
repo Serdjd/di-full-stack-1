@@ -45,24 +45,33 @@ export default function Contacto({params}) {
     }
 
     return(
-        editMode
-        ?
-        <form ref={formRef} action={updateContacto}>
-            <label>Nombre: <input name={"nombre"} defaultValue={contacto.nombre} type="text" required></input></label><br/>
-            <label>Apellidos: <input name={"apellidos"} defaultValue={contacto.apellidos} type="text" required></input></label><br/>
-            <label>Correo: <input name={"correo"} defaultValue={contacto.correo} type="email" required></input></label><br/>
-            <label>Número de teléfono: <input name={"numero_telefono"} defaultValue={contacto.numero_telefono} type="number" required></input></label><br/>
-            <label>Fecha de nacimiento: <input name={"fecha_nacimiento"} defaultValue={contacto.fecha_nacimiento} type="date" required></input></label><br/>
-            <button type="submit">Editar</button>
-        </form>
-        :
-        <>
-            <p>{contacto.nombre}</p>
-            <p>{contacto.apellidos}</p>
-            <p>{contacto.correo}</p>
-            <p>{contacto.numero_telefono}</p>
-            <p>{contacto.fecha_nacimiento}</p>
-            <button onClick={() => setEditMode(!editMode)}>Editar</button>
-        </>
+        <div className={"container"}>
+        {            
+            editMode
+            ?
+            <>
+                <h1>Modo de edición</h1>
+                <form ref={formRef} action={updateContacto}>
+                        <label>Nombre: <input name={"nombre"} defaultValue={contacto.nombre} type="text" required></input></label><br/>
+                        <label>Apellidos: <input name={"apellidos"} defaultValue={contacto.apellidos} type="text" required></input></label><br/>
+                        <label>Correo: <input name={"correo"} defaultValue={contacto.correo} type="email" required></input></label><br/>
+                        <label>Número de teléfono: <input name={"numero_telefono"} defaultValue={contacto.numero_telefono} type="number" required></input></label><br/>
+                        <label>Fecha de nacimiento: <input name={"fecha_nacimiento"} defaultValue={contacto.fecha_nacimiento} type="date" required></input></label><br/>
+                        <button type="submit">Editar</button>
+                </form>
+            </>
+            
+            :
+            <div>
+                <h1>{contacto.nombre + " " + contacto.apellidos}</h1>
+                <p>Correo: {contacto.correo}</p>
+                <p>Teléfono: {contacto.numero_telefono}</p>
+                <p>Fecha de nacimiento: {contacto.fecha_nacimiento}</p>
+                <button onClick={() => setEditMode(!editMode)} className={"edit"}>Editar</button>
+            </div>
+        }
+        </div>
+        
+        
     )
 }
